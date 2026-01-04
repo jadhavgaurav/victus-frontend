@@ -1,0 +1,65 @@
+/* auth.css */
+
+/* Keyframes for subtle rotations */
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse-slow {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes float-particle {
+  0%, 100% { transform: translate(0, 0); opacity: 0.3; }
+  50% { transform: translate(10px, -20px); opacity: 0.7; }
+}
+
+/* Base auth container styles */
+.auth-gradient-text {
+  background: linear-gradient(135deg, #22d3ee 0%, #0ea5e9 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Input autofill fix for dark mode */
+.auth-input:-webkit-autofill,
+.auth-input:-webkit-autofill:hover, 
+.auth-input:-webkit-autofill:focus, 
+.auth-input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px #09090b inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Jarvis Backdrop Layers */
+.jarvis-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(6, 182, 212, 0.1);
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.05);
+}
+
+.jarvis-ring::after {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px; right: -1px; bottom: -1px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-top-color: rgba(6, 182, 212, 0.3);
+  border-bottom-color: rgba(6, 182, 212, 0.1);
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .animate-spin-slow,
+  .animate-spin-reverse-slow,
+  .animate-float,
+  .jarvis-ring {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
